@@ -1,7 +1,7 @@
 services:
   mysql:
     image: mysql:8.3.0
-    container_name: inventory_service
+    container_name: inventory_mysql
     ports:
       - "3308:3306"
     environment:

@@ -13,8 +13,10 @@ public class InventoryServiceImpl implements InventoryService {
   private final InventoryRepository inventoryRepository;
 
   @Override
-  public boolean canOrder(String skuCode, Integer quantity) {
+  public boolean isInStock(String skuCode, Integer quantity) {
     log.info("Checking if sku: {} is order for quantity: {}", skuCode, quantity);
-    return inventoryRepository.isInStock(skuCode, quantity);
+    final boolean res = inventoryRepository.isInStock(skuCode, quantity);
+    log.info("Can order: {}", res);
+    return res;
   }
 }
